@@ -1,0 +1,48 @@
+<!-- if the person is found then the data will show -->
+<div *ngIf="person">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="img-rounded" alt="Contact Pic" width="100px" height="100px" src="{{person.img}}">
+          </a>
+        </div>
+        <div class="media-body">
+          <button type="button" class="btn btn-default btn-lg">Send Message</button>
+          <ul class="nav navbar navbar-nav">
+            <li *ngFor='let in of counter(5); let i = index'><a><i [ngClass]="(i<=person.rating)?'fa fa-heart': 'fa fa-heart-o'"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <blockquote>
+      <p>{{person.Description}}</p>
+    </blockquote>
+  </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <tr>
+        <th>Likes</th>
+        <th>Dislikes</th>
+      </tr>
+      <tr *ngFor="let like of person.Likes; let i = index">
+        <td>{{person.Likes[i]}}</td>
+        <td>{{person.Dislikes[i]}}</td>
+      </tr>
+      <tr *ngIf="person.Likes.length<0">
+        <td colspan="2">No Data Yet to be found.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- if there is nothing found -->
+<div *ngIf="!person">
+  <div class="row">
+    <div class="alert alert-danger">
+      <strong>Alert!</strong> Nothing found.
+    </div>
+  </div>
+</div>

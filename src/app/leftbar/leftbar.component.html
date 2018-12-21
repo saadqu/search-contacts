@@ -1,0 +1,10 @@
+<div class="list-group">
+  <!-- check if there is something on the people array -->
+  <span *ngIf="people.length > 0 && person">
+    <!-- itteration for all the people on the people array-->
+    <a *ngFor="let persons of people" [ngClass]="(persons.name==person.name)?'list-group-item active':'list-group-item'"
+      (click)="openContact(persons)">
+      {{persons.name}} <i class="pull-right fa fa-caret-right"></i>
+    </a>
+  </span>
+</div>
