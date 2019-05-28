@@ -38,6 +38,8 @@
                 }
               ],
               "optimization": true,
+              "baseHref": "./",
+              "deployUrl": "./",
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
